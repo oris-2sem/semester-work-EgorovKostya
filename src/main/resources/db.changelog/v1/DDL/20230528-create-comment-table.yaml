@@ -1,0 +1,41 @@
+databaseChangeLog:
+  - changeSet:
+      author: 'Kostya'
+      id: '006-create-comment-table'
+      changes:
+        - createTable:
+            tableName: comment
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_comment
+              - column:
+                  name: value
+                  type: text
+        - createTable:
+            tableName: title_comment
+            columns:
+              - column:
+                  name: title_id
+                  type: uuid
+              - column:
+                  name: comment_id
+                  type: uuid
+        - addForeignKeyConstraint:
+            baseTableName: title_comment
+            baseColumnNames: comment_id
+            referencedColumnNames: id
+            referencedTableName: comment
+            constraintName: fk_comment_id
+            onDelete: cascade
+        - addForeignKeyConstraint:
+            baseTableName: title_comment
+            baseColumnNames: title_id
+            referencedColumnNames: id
+            referencedTableName: title
+            constraintName: fka_titles_id
+            onDelete: cascade

@@ -1,0 +1,46 @@
+body {
+    background-image: url("/assets/images/background.jpg");
+    background-attachment: fixed;
+}
+
+body.dark-theme {
+    background-image: url("/assets/images/darkback.jpg");
+    background-attachment: fixed;
+}
+
+.baton {
+    right: 0;
+    bottom: 0;
+    position: sticky;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+             'FILL' 0,
+             'wght' 400,
+             'GRAD' 0,
+             'opsz' 24
+}
+.mute-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.mute-button i {
+    font-size: 24px;
+    color: #fff;
+}
+
+.card {
+    border-radius: 15px;
+}
+
+.nav-link {
+    border-radius: 10px;
+    padding: 10px;
+}

@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      author: 'Kostya'
+      id: '0004-create-file-name-table'
+      changes:
+        - createTable:
+            tableName: file_num
+            columns:
+              - column:
+                  name: count
+                  type: bigint

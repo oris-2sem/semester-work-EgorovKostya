@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      author: Kostya
+      id: '002-insert-zero-value'
+      changes:
+        - insert:
+            tableName: file_num
+            columns:
+              - column:
+                  name: count
+                  value: 0

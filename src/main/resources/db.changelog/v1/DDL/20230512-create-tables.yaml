@@ -1,0 +1,65 @@
+databaseChangeLog:
+  - changeSet:
+      author: 'Kostya'
+      id: '001-create-movie-genre-tables'
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_user
+              - column:
+                  name: username
+                  type: varchar
+                  constraints:
+                    unique: true
+              - column:
+                  name: password
+                  type: varchar
+              - column:
+                  name: is_enabled
+                  type: boolean
+              - column:
+                  name: created_at
+                  type: timestamp
+              - column:
+                  name: updated_at
+                  type: timestamp
+        - createTable:
+            tableName: roles
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_role
+
+              - column:
+                  name: name
+                  type: varchar
+        - createTable:
+            tableName: users_roles
+            columns:
+              - column:
+                  name: user_id
+                  type: uuid
+                  constraints:
+                    foreignKeyName: fk_user
+                    referencedTableName: users
+                    referencedColumnNames: id
+
+
+              - column:
+                  name: role_id
+                  type: uuid
+                  constraints:
+                    foreignKeyName: fk_role
+                    referencedTableName: roles
+                    referencedColumnNames: id

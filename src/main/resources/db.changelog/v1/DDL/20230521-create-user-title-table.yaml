@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      author: 'Kostya'
+      id: '003-create-user-title-tables'
+      changes:
+        - createTable:
+            tableName: users_titles
+            columns:
+              - column:
+                  name: user_id
+                  type: uuid
+
+              - column:
+                  name: title_id
+                  type: uuid
+
+        - addForeignKeyConstraint:
+            baseTableName: users_titles
+            baseColumnNames: user_id
+            referencedColumnNames: id
+            referencedTableName: users
+            constraintName: fk_users_title_id
+            onDelete: cascade
+        - addForeignKeyConstraint:
+            baseTableName: users_titles
+            baseColumnNames: title_id
+            referencedColumnNames: id
+            referencedTableName: title
+            constraintName: fk_titles_id
+            onDelete: cascade

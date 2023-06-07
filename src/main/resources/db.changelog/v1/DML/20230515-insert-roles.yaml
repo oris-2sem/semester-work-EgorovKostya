@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      author: Kostya
+      id: '001-insert-simple-roles'
+      changes:
+        - insert:
+            tableName: roles
+            columns:
+              - column:
+                  name: id
+                  value: "545807ca-412e-4dc8-b567-544ea69c5f03"
+              - column:
+                  name: name
+                  value: "ROLE_USER"
+
+        - insert:
+            tableName: roles
+            columns:
+              - column:
+                  name: id
+                  value: "ee2c9f20-2012-4b97-8f89-aacc7fb00da3"
+              - column:
+                  name: name
+                  value: "ROLE_ADMIN"

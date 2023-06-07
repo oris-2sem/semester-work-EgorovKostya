@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  kinopoisk:
+    container_name: kinopoisk-db
+    image: postgres:13-alpine
+    ports:
+      - "9999:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Kaktyc123
+      POSTGRES_DB: kinopoisk-db
+
+
+  minio:
+    container_name: minioa
+    image: minio/minio
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ROOT_USER: Smetanick
+      MINIO_ROOT_PASSWORD: Kaktyc123
+      MINIO_ACCESS_KEY: RZZs6yUbBfE0wDrFPsOi
+      MINIO_SECRET_KEY: XOOkS1jyForn8SwlOVDdF5tUA0qgd0dkuPgRtekB
+    command: server --console-address ":9001" /data
+    volumes:
+        - /mnt/hdd/minio/data:/export
+        - /mnt/hdd/minio/config:/root/.minio
+  kinopoisk-service:
+    container_name: kinopoisk-service
+    ports:
+      - 8080:8080
+    environment:
+      DB_HOST: localhost
+      DB_PORT: 9999
+    build:
+      context: ../
+      dockerfile: Dockerfilea

@@ -1,0 +1,25 @@
+spring:
+  mvc:
+    throw-exception-if-no-handler-found: true
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  servlet:
+    multipart:
+      max-file-size: 20MB
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    password: Kaktyc123
+    username: postgres
+    url: jdbc:postgresql://localhost:9999/kinopoisk-db
+  liquibase:
+    change-log: classpath:db.changelog/changelog-master.yaml
+minio:
+  bucket:
+    name: posters
+  access:
+    key: irG9bsqlDqgiqfAvaBcx
+    secret: SzEIQ2omhaY6E3c4E30NGMeCqxvX55TNRaQkvkhI
+  url: http://localhost:9000
+springdoc:
+  api-docs:
+    path: /api-docs

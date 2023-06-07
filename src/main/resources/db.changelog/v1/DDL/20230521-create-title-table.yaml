@@ -1,0 +1,94 @@
+databaseChangeLog:
+  - changeSet:
+      author: 'Kostya'
+      id: '002-create-title-author-tables'
+      changes:
+        - createTable:
+            tableName: title
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_title
+              - column:
+                  name: name
+                  type: varchar
+              - column:
+                  name: description
+                  type: text
+              - column:
+                  name: pages
+                  type: int
+              - column:
+                  name: url
+                  type: varchar
+              - column:
+                  name: type
+                  type: varchar
+              - column:
+                  name: released
+                  type: date
+              - column:
+                  name: status
+                  type: varchar
+              - column:
+                  name: alternative_name
+                  type: varchar
+              - column:
+                  name: full_description
+                  type: text
+              - column:
+                  name: link
+                  type: varchar
+              - column:
+                  name: created_at
+                  type: timestamp
+              - column:
+                  name: updated_at
+                  type: timestamp
+        - createTable:
+            tableName: author
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_author
+              - column:
+                  name: name
+                  type: varchar
+              - column:
+                  name: age
+                  type: int
+        - sql:
+            sql: ALTER TABLE author ADD CONSTRAINT check_age CHECK (age > 0);
+        - createTable:
+            tableName: author_title
+            columns:
+              - column:
+                  name: author_id
+                  type: uuid
+
+              - column:
+                  name: title_id
+                  type: uuid
+
+        - addForeignKeyConstraint:
+            baseTableName: author_title
+            baseColumnNames: author_id
+            referencedColumnNames: id
+            referencedTableName: author
+            constraintName: fk_author_id
+            onDelete: cascade
+        - addForeignKeyConstraint:
+            baseTableName: author_title
+            baseColumnNames: title_id
+            referencedColumnNames: id
+            referencedTableName: title
+            constraintName: fk_title_id
+            onDelete: cascade

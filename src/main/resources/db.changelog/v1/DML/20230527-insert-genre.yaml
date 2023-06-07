@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - changeSet:
+      author: Kostya
+      id: '003-insert-genres-values'
+      changes:
+        - insert:
+            tableName: genre
+            columns:
+              - column:
+                  name: id
+                  value: 640fd0d8-2b43-405a-b1fd-1e184fa0ff2b
+              - column:
+                  name: name
+                  value: гарем
+        - insert:
+            tableName: genre
+            columns:
+              - column:
+                  name: id
+                  value: 7e1eb1a5-ffea-4a26-a3e9-ffa3d95cdc5c
+              - column:
+                  name: name
+                  value: комедия

@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - include:
+      relativeToChangelogFile: true
+      file: DDL/20230512-create-tables.yaml
+  - include:
+      relativeToChangelogFile: true
+      file: DML/20230515-insert-roles.yaml
+  - include:
+      relativeToChangelogFile: true
+      file: DDL/20230521-create-title-table.yaml
+
+  - include:
+      relativeToChangelogFile: true
+      file: DDL/20230521-create-user-title-table.yaml
+  - include:
+      relativeToChangelogFile: true
+      file: DDL/20230525-create-file-name-table.yaml
+  - include:
+      relativeToChangelogFile: true
+      file: DML/20230525-insert-zero-value.yaml
+  - include:
+      relativeToChangelogFile: true
+      file: DDL/20230527-create-genre-table.yaml
+  - include:
+      relativeToChangelogFile: true
+      file: DML/20230527-insert-genre.yaml
+  - include:
+      relativeToChangelogFile: true
+      file: DDL/20230528-create-comment-table.yaml
